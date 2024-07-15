@@ -9,6 +9,20 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def tax
+    @employee = Employee.find(params[:id])
+    total_salary, tax_amount, cess_amount = @employee.calculate_tax
+
+    render json: {
+      employee_code: @employee.employee_id,
+      first_name: @employee.first_name,
+      last_name: @employee.last_name,
+      yearly_salary: total_salary,
+      tax_amount: tax_amount,
+      cess_amount: cess_amount
+    }
+  end
+
   private
 
   def employee_params

@@ -6,6 +6,10 @@ class Employee < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validate :valid_phone_numbers
 
+  def calculate_tax
+    EmployeeTaxCalculator.new(self).calculate
+  end
+  
   private
 
   def valid_phone_numbers
