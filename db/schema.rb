@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_15_061439) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.text "phone_numbers"
+    t.text "phone_numbers", default: [], array: true
     t.date "doj"
     t.decimal "salary"
     t.datetime "created_at", null: false

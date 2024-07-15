@@ -5,7 +5,7 @@ class CreateEmployees < ActiveRecord::Migration[7.1]
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.text :phone_numbers
+      t.text :phone_numbers, array: true, default: []
       t.date :doj
       t.decimal :salary
 

@@ -1,5 +1,4 @@
 class Employee < ApplicationRecord
-  serialize :phone_numbers, Array
 
   validates :employee_id, presence: true, uniqueness: true
   validates :first_name, :last_name, :email, :doj, :salary, presence: true
